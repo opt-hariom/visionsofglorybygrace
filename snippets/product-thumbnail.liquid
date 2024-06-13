@@ -74,17 +74,18 @@
 		</span>
 		{%- render 'loading-spinner' -%}
 		<div class="product__media media media--transparent">
-			{{
-				media.preview_image
-				| image_url: width: 1946
-				| image_tag:
-					class: image_class,
-					loading: lazy,
-					sizes: sizes,
-					widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
-					loading: 'eager',
-					fetchpriority: 'high'
-			}}
+
+          <img class="{{ image_class }}"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  
+			data-src="{{ media.preview_image | image_url: width: 1946 }}"
+            data-mob-src="{{ media.preview_image | image_url: width: 1024 }}"
+			sizes="{{ sizes }}"
+            fetchpriority="{{ high }}"
+            height=""
+            width=""
+			 />
+          
 		</div>
 		<button
 			class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
