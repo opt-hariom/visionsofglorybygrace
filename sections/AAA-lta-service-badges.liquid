@@ -1,0 +1,189 @@
+{{ 'lta-service-badges.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+	.section-{{ section.id }}-padding {
+	  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+	  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+	}
+
+	@media screen and (min-width: 750px) {
+	  .section-{{ section.id }}-padding {
+	    padding-top: {{ section.settings.padding_top }}px;
+	    padding-bottom: {{ section.settings.padding_bottom }}px;
+	  }
+	}
+{%- endstyle -%}
+
+{%- assign background_image_url = section.settings.background_image | image_url: width: 1400 -%}
+
+<div
+	class="l-customer-badges section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient"
+	{% if section.settings.background_image != blank %}
+		style="--l-customer-badges-bg-img: url('{{ background_image_url }}');--l-customer-badges-bg-color: {{ section.settings.background_color }};"
+	{% endif %}
+>
+	<div class="l-customer-badges__container">
+		{% render 'AAA-lta-section-header', center: true %}
+
+		<div class="page-width">
+			<div class="l-customer-badges__list">
+				{%- for block in section.blocks -%}
+					{%- if block.settings.image != blank -%}
+						<div class="l-customer-badges__item">
+							{{
+								block.settings.image
+								| image_url: width: block.settings.width
+								| image_tag: loading: 'lazy', class: 'l-customer-badges__img', sizes: '30, 50, 100, 200, 300'
+							}}
+						</div>
+					{%- endif -%}
+				{%- endfor -%}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "LTA - Service badges",
+	"class": "section",
+	"tag": "section",
+	"disabled_on": {
+		"groups": ["header", "footer"]
+	},
+	"settings": [
+		{
+			"type": "color_scheme",
+			"id": "color_scheme",
+			"label": "t:sections.all.colors.label",
+			"default": "scheme-1"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image",
+			"label": "Background image"
+		},
+		{
+			"type": "color_background",
+			"id": "background_color",
+			"label": "Background color",
+			"default": "linear-gradient(rgb(219 219 219 / 38%), rgb(219 219 219 / 38%))"
+		},
+		{
+			"type": "header",
+			"content": "Header"
+		},
+		{
+			"type": "image_picker",
+			"id": "header_icon",
+			"label": "Header icon"
+		},
+		{
+			"type": "textarea",
+			"id": "title",
+			"default": "Multicolumn",
+			"label": "t:sections.multicolumn.settings.title.label"
+		},
+		{
+			"type": "select",
+			"id": "heading_size",
+			"options": [
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h0",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+			],
+			"default": "h1",
+			"label": "t:sections.all.heading_size.label"
+		},
+		{
+			"type": "richtext",
+			"id": "text",
+			"label": "Description"
+		},
+		{
+			"type": "text",
+			"id": "button_label_1",
+			"default": "Button label",
+			"label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+			"info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+		},
+		{
+			"type": "url",
+			"id": "button_link_1",
+			"label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+		},
+		{
+			"type": "header",
+			"content": "t:sections.all.padding.section_padding_heading"
+		},
+		{
+			"type": "range",
+			"id": "padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "t:sections.all.padding.padding_top",
+			"default": 36
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "t:sections.all.padding.padding_bottom",
+			"default": 36
+		}
+	],
+	"blocks": [
+		{
+			"name": "Badge",
+			"type": "badge",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "range",
+					"id": "width",
+					"label": "Width",
+					"min": 50,
+					"max": 300,
+					"step": 10,
+					"unit": "px",
+					"default": 140
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "LTA - Service badges",
+			"blocks": [
+				{
+					"type": "badge"
+				},
+				{
+					"type": "badge"
+				},
+				{
+					"type": "badge"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

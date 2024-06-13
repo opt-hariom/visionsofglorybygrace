@@ -1,0 +1,181 @@
+{% comment %}
+	/* Proxima Nova: https://db.onlinewebfonts.com/c/bf9f5d50c1b928ff21436517a1a95ad9?family=Proxima+Nova */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova.eot'|file_url}});
+		src: url({{'Proxima_Nova.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova.woff'|file_url}}) format('woff'), url({{'Proxima_Nova.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Thin: https://db.onlinewebfonts.com/c/1e7e97d0da36ea1b00a66348a43dfb26?family=Proxima+Nova+Thin */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 100;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Thin.eot'|file_url}});
+		src: url({{'Proxima_Nova_Thin.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Thin.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Thin.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Thin.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Bold: https://db.onlinewebfonts.com/c/72b6f2c9990bd3d37b8013a59ed78902?family=Proxima+Nova+Bold */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Bold.eot'|file_url}});
+		src: url({{'Proxima_Nova_Bold.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Bold.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Bold.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Bold.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Medium: https://db.onlinewebfonts.com/c/72b6f2c9990bd3d37b8013a59ed78902?family=Proxima+Nova+Medium */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Medium.eot'|file_url}});
+		src: url({{'Proxima_Nova_Medium.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Medium.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Medium.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Medium.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Light: https://db.onlinewebfonts.com/c/72b6f2c9990bd3d37b8013a59ed78902?family=Proxima+Nova+Light */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 300;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Light.eot'|file_url}});
+		src: url({{'Proxima_Nova_Light.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Light.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Light.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Light.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Black: https://db.onlinewebfonts.com/c/72b6f2c9990bd3d37b8013a59ed78902?family=Proxima+Nova+Black */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Black.eot'|file_url}});
+		src: url({{'Proxima_Nova_Black.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Black.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Black.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Black.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Regular: https://db.onlinewebfonts.com/c/72b6f2c9990bd3d37b8013a59ed78902?family=Proxima+Nova+Regular */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Regular.eot'|file_url}});
+		src: url({{'Proxima_Nova_Regular.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Regular.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Regular.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Regular.ttf'|file_url}}) format('truetype');
+	}
+
+	/* Proxima Nova Italic: https://db.onlinewebfonts.com/c/72b6f2c9990bd3d37b8013a59ed78902?family=Proxima+Nova+Italic */
+	@font-face {
+		font-family: 'Proxima Nova';
+		font-weight: normal;
+		font-style: italic;
+		font-display: swap;
+		src: url({{'Proxima_Nova_Italic.eot'|file_url}});
+		src: url({{'Proxima_Nova_Italic.eot'|file_url|append:'?#iefix'}}) format('embedded-opentype'),
+			url({{'Proxima_Nova_Italic.woff'|file_url}}) format('woff'),
+			url({{'Proxima_Nova_Italic.woff2'|file_url}}) format('woff2'),
+			url({{'Proxima_Nova_Italic.ttf'|file_url}}) format('truetype');
+	}
+{% endcomment %}
+
+{%- if settings.use_custom_font -%}
+	{% style %}
+		@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+		@import 'https://use.typekit.net/rbp6jer.css';
+
+		@font-face {
+			font-family: 'proxima-nova';
+			src: url(https://use.typekit.net/af/e3ed45/00000000000000007735e602/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3)
+					format('woff2'),
+				url(https://use.typekit.net/af/e3ed45/00000000000000007735e602/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3)
+					format('woff'),
+				url(https://use.typekit.net/af/e3ed45/00000000000000007735e602/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3)
+					format('opentype');
+			font-weight: 900;
+			font-style: normal;
+			font-stretch: normal;
+			font-display: auto;
+		}
+
+		@font-face {
+			font-family: 'proxima-nova';
+			src: url(https://use.typekit.net/af/2555e1/00000000000000007735e603/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3)
+					format('woff2'),
+				url(https://use.typekit.net/af/2555e1/00000000000000007735e603/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3)
+					format('woff'),
+				url(https://use.typekit.net/af/2555e1/00000000000000007735e603/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3)
+					format('opentype');
+			font-weight: 700;
+			font-style: normal;
+			font-stretch: normal;
+			font-display: auto;
+		}
+
+		@font-face {
+			font-family: 'proxima-nova';
+			src: url(https://use.typekit.net/af/4de20a/00000000000000007735e604/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3)
+					format('woff2'),
+				url(https://use.typekit.net/af/4de20a/00000000000000007735e604/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3)
+					format('woff'),
+				url(https://use.typekit.net/af/4de20a/00000000000000007735e604/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3)
+					format('opentype');
+			font-weight: 700;
+			font-style: italic;
+			font-stretch: normal;
+			font-display: auto;
+		}
+
+		@font-face {
+			font-family: 'proxima-nova';
+			src: url(https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3)
+					format('woff2'),
+				url(https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3)
+					format('woff'),
+				url(https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3)
+					format('opentype');
+			font-weight: 400;
+			font-style: normal;
+			font-stretch: normal;
+			font-display: auto;
+		}
+
+		@font-face {
+			font-family: 'proxima-nova';
+			src: url(https://use.typekit.net/af/3322cc/00000000000000007735e616/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3)
+					format('woff2'),
+				url(https://use.typekit.net/af/3322cc/00000000000000007735e616/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3)
+					format('woff'),
+				url(https://use.typekit.net/af/3322cc/00000000000000007735e616/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3)
+					format('opentype');
+			font-weight: 400;
+			font-style: italic;
+			font-stretch: normal;
+			font-display: auto;
+		}
+	{% endstyle %}
+{%- endif -%}

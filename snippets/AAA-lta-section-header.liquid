@@ -1,0 +1,123 @@
+<div class="l-section__header page-width{% if center %} center{% endif %}">
+	{%- if section.settings.header_icon != blank -%}
+		{{
+			section.settings.header_icon
+			| image_url: width: 100
+			| image_tag: loading: 'lazy', sizes: '50, 100, 150', class: 'l-section__header-icon'
+		}}
+	{%- endif -%}
+
+	{%- if section.settings.caption != blank -%}
+		<p
+			class="l-section__header-caption rich-text__caption subtitle subtitle--medium"
+		>
+			{{ section.settings.caption | escape }}
+		</p>
+	{%- endif -%}
+
+	{%- if section.settings.title != blank -%}
+		<h2
+			class="l-section__header-heading rich-text__heading rte inline-richtext {{ section.settings.heading_size }}"
+		>
+			{{ section.settings.title }}
+		</h2>
+	{%- endif -%}
+
+	{%- if section.settings.text != blank -%}
+		<div
+			class="l-section__header-content rich-text__text rte"
+		>
+			{{ section.settings.text }}
+		</div>
+	{%- endif -%}
+
+	<div
+		class="banner__buttons{% if section.settings.button_label_1 != blank and section.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+	>
+		{%- if section.settings.button_label_1 != blank -%}
+			<a
+				{% if section.settings.button_link_1 == blank %}
+					role="link" aria-disabled="true"
+				{% else %}
+					href="{{ section.settings.button_link_1 }}"
+				{% endif %}
+				class="button{% if section.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+			>
+				{{- section.settings.button_label_1 | escape -}}
+			</a>
+		{%- endif -%}
+		{%- if section.settings.button_label_2 != blank -%}
+			<a
+				{% if section.settings.button_link_2 == blank %}
+					role="link" aria-disabled="true"
+				{% else %}
+					href="{{ section.settings.button_link_2 }}"
+				{% endif %}
+				class="button{% if section.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+			>
+				{{- section.settings.button_label_2 | escape -}}
+			</a>
+		{%- endif -%}
+	</div>
+</div>
+
+{% comment %}
+	{
+		"type": "header",
+		"content": "Header"
+	},
+	{
+		"type": "image_picker",
+		"id": "header_icon",
+		"label": "Header icon"
+	},
+	{
+		"type": "textarea",
+		"id": "title",
+		"default": "Multicolumn",
+		"label": "t:sections.multicolumn.settings.title.label"
+	},
+	{
+		"type": "select",
+		"id": "heading_size",
+		"options": [
+			{
+				"value": "h2",
+				"label": "t:sections.all.heading_size.options__1.label"
+			},
+			{
+				"value": "h1",
+				"label": "t:sections.all.heading_size.options__2.label"
+			},
+			{
+				"value": "h0",
+				"label": "t:sections.all.heading_size.options__3.label"
+			}
+		],
+		"default": "h1",
+		"label": "t:sections.all.heading_size.label"
+	},
+	{
+		"type": "richtext",
+		"id": "text",
+		"label": "Description"
+	},
+	{
+		"type": "text",
+		"id": "button_label_1",
+		"default": "Button label",
+		"label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+		"info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+	},
+	{
+		"type": "url",
+		"id": "button_link_1",
+		"label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+	},
+	{
+		"type": "checkbox",
+		"id": "button_style_secondary_1",
+		"default": false,
+		"label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
+	},
+{% endcomment %}

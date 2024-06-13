@@ -1,0 +1,177 @@
+{{ 'lta-customer-reviews-v2.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+	.section-{{ section.id }}-padding {
+	  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+	  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+	}
+
+	@media screen and (min-width: 750px) {
+	  .section-{{ section.id }}-padding {
+	    padding-top: {{ section.settings.padding_top }}px;
+	    padding-bottom: {{ section.settings.padding_bottom }}px;
+	  }
+	}
+{%- endstyle -%}
+
+<div class="l-customer-reviews-v2 section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+	{% render 'AAA-lta-section-header', center: true %}
+
+	<div class="l-customer-reviews-v2__container page-width">
+		<ul class="l-customer-reviews-v2__list list-menu" data-carousel>
+			{%- for block in section.blocks -%}
+				<li class="l-customer-reviews-v2__item center">
+					{%- if block.settings.heading != blank -%}
+						<span class="l-customer-reviews-v2__title">
+							{{ block.settings.heading }}
+						</span>
+					{%- endif -%}
+					<div class="l-customer-reviews-v2__stars">
+						{%- for index in (1..5) -%}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								version="1.1"
+								width="42.04825"
+								height="40.2"
+								viewBox="0,0,42.04825,40.2"
+							>
+								<g transform="translate(-218.96759,-158.9)"><g data-paper-data="{&quot;isPaintingLayer&quot;:true}" fill="#f5b700" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" style="mix-blend-mode: normal"><path d="M260.2,176.7l-8.2,8l1.8,11.3c0.2,1 -0.2,2 -1,2.6c-0.4,0.3 -1,0.5 -1.5,0.5c-0.4,0 -0.8,-0.1 -1.2,-0.3l-10.1,-5.3l-10.2,5.3c-0.4,0.2 -0.8,0.3 -1.2,0.3c-0.5,0 -1,-0.2 -1.5,-0.5c-0.8,-0.6 -1.2,-1.6 -1,-2.6l1.9,-11.2l-8.2,-8c-0.8,-0.7 -1,-1.7 -0.7,-2.7c0.3,-1 1.1,-1.7 2.1,-1.8l11.3,-1.6l5.1,-10.3c0.5,-0.9 1.4,-1.5 2.4,-1.5c1,0 2,0.6 2.4,1.5l5.1,10.3l11.3,1.6c1,0.2 1.8,0.8 2.1,1.8c0.3,0.9 0,2 -0.7,2.6z"/></g></g>
+							</svg>
+						{%- endfor -%}
+					</div>
+					{%- if block.settings.content != blank -%}
+						<div class="l-customer-reviews-v2__content rte">{{ block.settings.content }}</div>
+					{%- endif -%}
+					{%- if block.settings.name != blank -%}
+						<span class="l-customer-reviews-v2__name">{{ block.settings.name }}</span>
+					{%- endif -%}
+				</li>
+			{%- endfor -%}
+		</ul>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "LTA - Customer reviews V2",
+	"class": "section",
+	"tag": "section",
+	"disabled_on": {
+		"groups": ["header", "footer"]
+	},
+	"settings": [
+		{
+			"type": "color_scheme",
+			"id": "color_scheme",
+			"label": "t:sections.all.colors.label",
+			"default": "scheme-1"
+		},
+		{
+			"type": "image_picker",
+			"id": "header_icon",
+			"label": "Header icon"
+		},
+		{
+			"type": "textarea",
+			"id": "title",
+			"default": "Multicolumn",
+			"label": "t:sections.multicolumn.settings.title.label"
+		},
+		{
+			"type": "select",
+			"id": "heading_size",
+			"options": [
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h0",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+			],
+			"default": "h1",
+			"label": "t:sections.all.heading_size.label"
+		},
+		{
+			"type": "richtext",
+			"id": "text",
+			"label": "Description"
+		},
+		{
+			"type": "header",
+			"content": "t:sections.all.padding.section_padding_heading"
+		},
+		{
+			"type": "range",
+			"id": "padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "t:sections.all.padding.padding_top",
+			"default": 36
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 4,
+			"unit": "px",
+			"label": "t:sections.all.padding.padding_bottom",
+			"default": 36
+		}
+	],
+	"blocks": [
+		{
+			"type": "review",
+			"name": "t:sections.multicolumn.blocks.column.name",
+			"settings": [
+				{
+					"type": "text",
+					"id": "heading",
+					"label": "Heading",
+					"default": "Excellent Gifts"
+				},
+				{
+					"type": "richtext",
+					"id": "content",
+					"label": "Content",
+					"default": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe ipsum ea nisi officia fugiat repellat pariatur, quam soluta ipsam totam.</p>"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"default": "John Doe, United Kingdom"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "LTA - Customer reviews V2",
+			"blocks": [
+				{
+					"type": "review"
+				},
+				{
+					"type": "review"
+				},
+				{
+					"type": "review"
+				},
+				{
+					"type": "review"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
